@@ -1,0 +1,321 @@
+/* =========================
+   Base styles
+   ========================= */
+
+:root {
+  --bg-color: #020b24;          /* dark blue */
+  --heading-color: #a8ffbf;     /* pastel green */
+  --text-color: #ffffff;        /* white */
+  --muted-text: #d1d5db;
+  --card-bg: #07132f;
+  --border-soft: #1f2937;
+  --max-width: 900px;
+  --radius: 0.9rem;
+  --shadow-soft: 0 14px 40px rgba(0, 0, 0, 0.6);
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background: var(--bg-color);
+  color: var(--text-color);
+  line-height: 1.6;
+}
+
+/* Accessibility: skip link */
+.skip-link {
+  position: absolute;
+  left: -999px;
+  top: 0;
+  background: #111827;
+  color: #f9fafb;
+  padding: 0.5rem 1rem;
+  border-radius: 0 0 0.5rem 0.5rem;
+  z-index: 100;
+}
+.skip-link:focus {
+  left: 0.75rem;
+}
+
+/* =========================
+   Header / Navigation
+   ========================= */
+
+.site-header {
+  position: sticky;
+  top: 0;
+  z-index: 20;
+  background: rgba(2, 11, 36, 0.95);
+  border-bottom: 1px solid rgba(148, 163, 184, 0.3);
+  backdrop-filter: blur(12px);
+}
+
+.header-inner {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 0.5rem 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+/* simple circular mark instead of logo image */
+.logo-mark {
+  width: 32px;
+  height: 32px;
+  border-radius: 999px;
+  background: radial-gradient(circle at 30% 30%, #a8ffbf, #1d4ed8);
+  border: 2px solid #0b1120;
+}
+
+.main-nav {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.6rem;
+  font-size: 0.9rem;
+}
+
+.main-nav a {
+  text-decoration: none;
+  color: var(--muted-text);
+  padding: 0.25rem 0.6rem;
+  border-radius: 999px;
+  border: 1px solid transparent;
+}
+.main-nav a:hover,
+.main-nav a:focus {
+  color: var(--text-color);
+  border-color: rgba(168, 255, 191, 0.5);
+  background: rgba(15, 23, 42, 0.9);
+}
+
+/* =========================
+   Hero section
+   ========================= */
+
+.hero {
+  padding: 3rem 1rem 2rem;
+}
+
+.hero-inner {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+  align-items: center;
+  background: radial-gradient(circle at top left, rgba(168, 255, 191, 0.25), transparent 55%),
+              radial-gradient(circle at bottom right, rgba(59, 130, 246, 0.25), transparent 55%),
+              #020617;
+  border-radius: 1.2rem;
+  padding: 1.75rem;
+  border: 1px solid rgba(148, 163, 184, 0.4);
+  box-shadow: var(--shadow-soft);
+}
+
+.hero-image {
+  border-radius: 999px;
+  width: 200px;
+  height: 200px;
+  object-fit: cover;
+  border: 3px solid var(--heading-color);
+}
+
+.hero-text-block {
+  flex: 1;
+  min-width: 220px;
+}
+
+.hero h1 {
+  margin: 0 0 0.4rem;
+  font-size: clamp(1.7rem, 2.7vw, 2.2rem);
+  color: var(--heading-color);
+}
+
+.hero-title {
+  margin: 0 0 0.5rem;
+  font-size: 1rem;
+  font-weight: 600;
+}
+
+.hero-sub {
+  margin: 0;
+  color: var(--muted-text);
+  font-size: 0.95rem;
+}
+
+/* =========================
+   Sections
+   ========================= */
+
+.section {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 1.8rem 1rem 0.8rem;
+}
+
+.section h2 {
+  margin: 0 0 0.75rem;
+  font-size: 1.25rem;
+  color: var(--heading-color);
+}
+
+.section p {
+  margin: 0 0 0.6rem;
+}
+
+/* Technical skills */
+
+.skills-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 1rem;
+  margin-top: 0.5rem;
+}
+
+.skill-group {
+  background: var(--card-bg);
+  border-radius: var(--radius);
+  padding: 1rem;
+  border: 1px solid var(--border-soft);
+}
+
+.skill-group h3 {
+  margin-top: 0;
+  margin-bottom: 0.4rem;
+  font-size: 1rem;
+  color: var(--heading-color);
+}
+
+.skill-group ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  font-size: 0.92rem;
+}
+
+.skill-group li {
+  margin-bottom: 0.25rem;
+}
+
+/* Timeline (Education & Experience) */
+
+.timeline {
+  display: grid;
+  gap: 1rem;
+  margin-top: 0.5rem;
+}
+
+.timeline-item {
+  background: var(--card-bg);
+  border-radius: var(--radius);
+  padding: 1rem;
+  border: 1px solid var(--border-soft);
+}
+
+.timeline-item h3 {
+  margin: 0 0 0.3rem;
+  font-size: 1rem;
+  color: var(--heading-color);
+}
+
+.timeline-meta {
+  margin: 0 0 0.5rem;
+  font-size: 0.9rem;
+  color: var(--muted-text);
+}
+
+/* Projects */
+
+.projects-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px));
+  gap: 1rem;
+  margin-top: 0.5rem;
+}
+
+.project-card {
+  background: var(--card-bg);
+  border-radius: var(--radius);
+  padding: 1rem;
+  border: 1px solid var(--border-soft);
+}
+
+.project-card h3 {
+  margin-top: 0;
+  margin-bottom: 0.4rem;
+  font-size: 1rem;
+  color: var(--heading-color);
+}
+
+.project-card p {
+  margin: 0 0 0.4rem;
+  font-size: 0.94rem;
+}
+
+.project-tags {
+  font-size: 0.85rem;
+  color: var(--muted-text);
+}
+
+/* Contact */
+
+.contact-list {
+  list-style: none;
+  padding: 0;
+  margin: 0.5rem 0 0;
+  font-size: 0.95rem;
+}
+
+.contact-list li {
+  margin-bottom: 0.3rem;
+}
+
+.contact-list a {
+  color: var(--heading-color);
+  text-decoration: none;
+}
+.contact-list a:hover,
+.contact-list a:focus {
+  text-decoration: underline;
+}
+
+/* =========================
+   Footer
+   ========================= */
+
+.site-footer {
+  max-width: var(--max-width);
+  margin: 2rem auto 2.5rem;
+  padding: 0 1rem;
+  text-align: center;
+  font-size: 0.85rem;
+  color: var(--muted-text);
+}
+
+/* =========================
+   Responsive tweaks
+   ========================= */
+
+@media (max-width: 650px) {
+  .header-inner {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .main-nav {
+    justify-content: flex-start;
+  }
+}
